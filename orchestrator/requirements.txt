@@ -1,0 +1,8 @@
+faster-whisper
+transformers
+sentencepiece
+soundfile
+numpy
+python-dotenv
+tqdm
+requests

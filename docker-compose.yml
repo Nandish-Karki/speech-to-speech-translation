@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  asr_service:
+    build: ./services/asr
+    environment:
+      - ASR_DEVICE=cpu
+      - ASR_BEAM_SIZE=1
+    ports: [ "8001:8001" ]
+
+  mt_service:
+    build: ./services/mt
+    ports: [ "8002:8002" ]
+
+  tts_service:
+    build: ./services/tts
+    environment:
+      - PIPER_BIN=/usr/local/bin/piper
+    volumes:
+      - ./voices:/voices:ro
+      # Uncomment and adjust the next line to mount your host piper binary:
+      # - /usr/local/bin/piper:/usr/local/bin/piper:ro
+    ports: [ "8003:8003" ]
