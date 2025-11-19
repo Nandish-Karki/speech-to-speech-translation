@@ -27,3 +27,5 @@ async def transcribe(audio: UploadFile = File(...)):
                 "words": [{"w": w.word, "s": float(w.start), "e": float(w.end)} for w in (seg.words or [])]
             })
     return {"segments": out}
+
+"let me make the changes here as well"
